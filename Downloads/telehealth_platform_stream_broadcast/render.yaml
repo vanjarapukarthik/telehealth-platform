@@ -1,0 +1,13 @@
+# Render Blueprint: deploy backend as a Web Service.
+# Set env vars in the Render dashboard (see backend/.env.example).
+# For split frontend hosting (e.g. Vercel), set CORS_ORIGIN to the static site URL
+# and build the frontend with VITE_API_URL / VITE_WS_URL pointing to this service URL.
+
+services:
+  - type: web
+    name: telehealth-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
